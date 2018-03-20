@@ -14,15 +14,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class LoginController {
 
     @RequestMapping("admin.do")
-    public String admin(){
+    public String admin() {
         return "login";
     }
 
     @RequestMapping("login.do")
-    public String login(String username, String password, ModelMap model){
-        if(username.equals("admin") && password.equals("feastcoding")){
+    public String login(String username, String password, ModelMap model) {
+        if (username.equals("admin") && password.equals("feastcoding")) {
             return "index";
-        }else{
+        } else {
             model.put("mes", "用户名或密码错误");
             return "login";
         }

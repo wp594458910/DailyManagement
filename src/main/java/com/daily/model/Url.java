@@ -8,6 +8,7 @@ public class Url {
     private String name;
     private String url;
     private String description;
+    private Integer times;
     private Integer typeid;
 
     public Integer getId() {
@@ -40,6 +41,14 @@ public class Url {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public Integer getTimes() {
+        return times;
+    }
+
+    public void setTimes(Integer times) {
+        this.times = times;
     }
 
     public Integer getTypeid() {

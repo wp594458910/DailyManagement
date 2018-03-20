@@ -9,6 +9,7 @@
         <result column="name" property="name"/>
         <result column="url" property="url"/>
         <result column="description" property="description" />
+        <result column="times" property="times"/>
         <result column="typeid" property="typeid"/>
 	</resultMap>
 
@@ -22,6 +23,7 @@
 			name,
 			url,
 			description,
+			times,
 			typeid
     </sql>
     <sql id="update_clause">
@@ -35,7 +37,10 @@
             <if test="description != null and description !=''">
                 description=#{description},
             </if>
-            <if test="typeid != null and typeid !=''">
+            <if test="times != null">
+                times=#{times},
+            </if>
+            <if test="typeid != null">
                 typeid=#{typeid},
             </if>
         </trim>
@@ -43,17 +48,20 @@
     <sql id="query_where_clause">
         where 1=1
         <trim suffixOverrides=",">
-            <if test="id != null and id !=''">
+            <if test="id != null">
                 and id=#{id}
             </if>
             <if test="name != null and name !=''">
-                and name=#{name}
+                and name LIKE CONCAT(CONCAT('%',#{name},'%'))
             </if>
             <if test="url != null and url !=''">
                 and url=#{url}
             </if>
             <if test="description != null and description !=''">
                 and description=#{description}
+            </if>
+            <if test="times != null">
+                and times=#{times}
             </if>
             <if test="typeid != null and typeid !=''">
                 and typeid=#{typeid}
@@ -67,6 +75,7 @@
 			name,
 			url,
             description,
+            times,
 			typeid
         )
         values
@@ -74,6 +83,7 @@
 			#{name},
 			#{url},
             #{description},
+            #{times},
 			#{typeid}
         )
     </insert>
@@ -106,7 +116,7 @@
         from 
         <include refid="table_name" />
         <include refid="query_where_clause"/>
-        order by id desc
+        order by times DESC
     </select>
 
     <update id="update" parameterType="Object" >

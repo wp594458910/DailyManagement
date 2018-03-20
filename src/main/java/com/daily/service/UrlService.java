@@ -46,6 +46,12 @@ public class UrlService{
         public List<Url> queryByUrl(Url url){
 			return mapper.queryByUrl(url);
         }
+
+        public List<Url> queryByType(Integer typeId){
+            Url url = new Url();
+            url.setTypeid(typeId);
+            return mapper.queryByUrl(url);
+        }
 		
         public Url queryById(Integer id){
 			return mapper.queryById(id);

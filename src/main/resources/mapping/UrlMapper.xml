@@ -8,9 +8,9 @@
         <result column="id" property="id"/>
         <result column="name" property="name"/>
         <result column="url" property="url"/>
+        <result column="description" property="description" />
         <result column="typeid" property="typeid"/>
 	</resultMap>
-
 
 	<!-- table name -->
 	<sql id="table_name">
@@ -21,6 +21,7 @@
 			id,
 			name,
 			url,
+			description,
 			typeid
     </sql>
     <sql id="update_clause">
@@ -30,6 +31,9 @@
             </if>
             <if test="url != null and url !=''">
                 url=#{url},
+            </if>
+            <if test="description != null and description !=''">
+                description=#{description},
             </if>
             <if test="typeid != null and typeid !=''">
                 typeid=#{typeid},
@@ -48,6 +52,9 @@
             <if test="url != null and url !=''">
                 and url=#{url}
             </if>
+            <if test="description != null and description !=''">
+                and description=#{description}
+            </if>
             <if test="typeid != null and typeid !=''">
                 and typeid=#{typeid}
             </if>
@@ -59,12 +66,14 @@
         (
 			name,
 			url,
+            description,
 			typeid
         )
         values
         (
 			#{name},
 			#{url},
+            #{description},
 			#{typeid}
         )
     </insert>

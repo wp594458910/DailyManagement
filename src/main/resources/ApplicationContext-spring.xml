@@ -23,7 +23,7 @@
 			<value>root</value>
 		</property>
 		<property name="password">
-			<value>feastcoding</value>
+			<value></value>
 		</property>
 		<property name="validationQuery">
 			<value>select 1</value>

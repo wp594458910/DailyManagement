@@ -9,7 +9,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title></title>
+    <title>FeastCoding</title>
     <link href="<%=path%>/jsp/css/bootstrap.css" rel="stylesheet" />
     <link href="<%=path%>/jsp/css/base.css" rel="stylesheet" />
 </head>
@@ -82,16 +82,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                             <table class="table table-bordered tb-hover">
                                 <thead>
                                     <tr>
-										<td>
+										<td width="15%">
 											名称 
 										</td>
-										<td>
+										<td width="20%">
 											url 
 										</td>
-										<td>
+                                        <td width="30%">
+                                            描述
+                                        </td>
+										<td width="15%">
 											类型 
 										</td>
-                                        <td class="text-center">操作</td>
+                                        <td width="20%" class="text-center">操作</td>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -103,6 +106,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 											<td>
 											${item.url}
 											</td>
+                                            <td>
+                                            ${item.description}
+                                            </td>
 											<td>
 											    <c:if test="${item.typeid == 1}">
                                                     菜单链接

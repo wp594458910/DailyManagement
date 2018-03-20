@@ -9,7 +9,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title></title>
+    <title>FeastCoding</title>
     <link href="<%=path%>/jsp/css/bootstrap.css" rel="stylesheet" />
     <link href="<%=path%>/jsp/css/base.css" rel="stylesheet" />
 </head>
@@ -83,6 +83,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                 <div class="form-group">
                                     <label for="exampleInputPassword1">url</label>
                                     <input type="text" name="url" value="${url.url}" class="form-control" placeholder="url" />
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputPassword1">描述</label>
+                                    <input type="text" name="description" value="${url.description}" class="form-control" placeholder="description" />
                                 </div>
 
                                 <input type="hidden" value="${url.typeid}" name="typeid">

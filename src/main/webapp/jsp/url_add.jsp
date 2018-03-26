@@ -10,8 +10,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>FeastCoding</title>
-    <link href="<%=path%>/jsp/css/bootstrap.css" rel="stylesheet" />
-    <link href="<%=path%>/jsp/css/base.css" rel="stylesheet" />
+    <link href="<%=path%>/static/css/bootstrap.css" rel="stylesheet" />
+    <link href="<%=path%>/static/css/base.css" rel="stylesheet" />
 </head>
 <body style="min-height:800px; height: auto">
     <div class="container-fluid">
@@ -31,9 +31,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 <div class="collapse navbar-collapse pull-right" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav">
                         <li><a class="dropdown-toggle" data-toggle="dropdown" href="#" style="height: 50px">
-                            <img class="img-circle pull-left img-responsive nav-user-img" src="<%=path%>/jsp/img/user.jpg" /><span class="pull-left nav-username">${sessionScope.user.name }</span></a>
+                            <img class="img-circle pull-left img-responsive nav-user-img" src="<%=path%>/static/img/user.jpg" /><span class="pull-left nav-username">${sessionScope.user.name }</span></a>
                         </li>
-                        <li><a class="dropdown-toggle" data-toggle="dropdown" href="<%=path%>/jsp/login.jsp" style="height: 50px">
+                        <li><a class="dropdown-toggle" data-toggle="dropdown" href="<%=path%>/static/login.jsp" style="height: 50px">
                             <span class="pull-left">退出</span></a>
                         </li>
                     </ul>
@@ -104,7 +104,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             </div>
         </div>
     </div>
-    <script src="<%=path%>/jsp/js/jquery.min.js"></script>
-    <script src="<%=path%>/jsp/js/bootstrap.min.js"></script>
+    <script src="<%=path%>/static/js/jquery.min.js"></script>
+    <script src="<%=path%>/static/js/bootstrap.min.js"></script>
 </body>
 </html>

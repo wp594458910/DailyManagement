@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.daily.mapper.RoleMapper">
+	<!-- Result Map -->
+	<resultMap id="baseResultMap" type="com.daily.model.Role">
+        <result column="id" property="id"/>
+        <result column="role" property="role"/>
+        <result column="description" property="description"/>
+	</resultMap>
+
+
+	<!-- table name -->
+	<sql id="table_name">
+		role
+	</sql>
+	<!-- property table all fields -->
+    <sql id="base_column_list">
+			id,
+			role,
+			description
+    </sql>
+    <sql id="update_clause">
+        <trim suffixOverrides=",">
+            <if test="role != null and role !=''">
+                role=#{role},
+            </if>
+            <if test="description != null and description !=''">
+                description=#{description},
+            </if>
+        </trim>
+    </sql>
+    <sql id="query_where_clause">
+        where 1=1
+        <trim suffixOverrides=",">
+            <if test="id != null and id !=''">
+                and id=#{id}
+            </if>
+            <if test="role != null and role !=''">
+                and role=#{role}
+            </if>
+            <if test="description != null and description !=''">
+                and description=#{description}
+            </if>
+        </trim>
+    </sql>
+    <insert id="save" parameterType="Object" >
+        insert into 
+        <include refid="table_name" />
+        (
+			role,
+			description
+        )
+        values
+        (
+			#{role},
+			#{description}
+        )
+    </insert>
+
+    <select id="queryById" resultMap="baseResultMap" parameterType="Object">
+        select
+        <include refid="base_column_list" />
+        from <include refid="table_name" /> where id = #{id}
+    </select>
+
+    <select id="queryByCount" resultType="java.lang.Integer" parameterType="Object">
+        select count(1) from 
+        <include refid="table_name" />
+        <include refid="query_where_clause" />
+    </select>
+
+    <select id="queryByList" resultMap="baseResultMap"	parameterType="Object">
+        select
+        <include refid="base_column_list"/>
+        from 
+        <include refid="table_name" />
+        <include refid="query_where_clause"/>
+        order by id desc
+		${pageQueryCondition}
+    </select>
+	
+    <select id="queryByRole" resultMap="baseResultMap"	parameterType="Object">
+        select
+        <include refid="base_column_list"/>
+        from 
+        <include refid="table_name" />
+        <include refid="query_where_clause"/>
+        order by id desc
+    </select>
+
+    <update id="update" parameterType="Object" >
+        update <include refid="table_name" /> set <include refid="update_clause" /> where id = #{id}
+    </update>
+
+    <update id="updateResult" parameterType="Object" >
+        update <include refid="table_name" /> set <include refid="update_clause" /> where id = #{id}
+    </update>
+
+	<delete id="deleteById" parameterType="Object">
+		delete from <include refid="table_name" /> where id = #{id}
+	</delete>
+
+</mapper>   

@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.daily.mapper.UserRoleMapper">
+	<!-- Result Map -->
+	<resultMap id="baseResultMap" type="com.daily.model.UserRole">
+        <result column="userid" property="userid"/>
+        <result column="roleid" property="roleid"/>
+	</resultMap>
+
+
+	<!-- table name -->
+	<sql id="table_name">
+		user_role
+	</sql>
+	<!-- property table all fields -->
+    <sql id="base_column_list">
+			userid,
+			roleid
+    </sql>
+    <sql id="update_clause">
+        <trim suffixOverrides=",">
+            <if test="userid != null and userid !=''">
+                userid=#{userid},
+            </if>
+        </trim>
+    </sql>
+    <sql id="query_where_clause">
+        where 1=1
+        <trim suffixOverrides=",">
+            <if test="userid != null and userid !=''">
+                and userid=#{userid}
+            </if>
+            <if test="roleid != null and roleid !=''">
+                and roleid=#{roleid}
+            </if>
+        </trim>
+    </sql>
+    <insert id="save" parameterType="Object" >
+        insert into 
+        <include refid="table_name" />
+        (
+			userid,
+        )
+        values
+        (
+			#{userid},
+        )
+    </insert>
+
+    <select id="queryById" resultMap="baseResultMap" parameterType="Object">
+        select
+        <include refid="base_column_list" />
+        from <include refid="table_name" /> where roleid = #{roleid}
+    </select>
+
+    <select id="queryByCount" resultType="java.lang.Integer" parameterType="Object">
+        select count(1) from 
+        <include refid="table_name" />
+        <include refid="query_where_clause" />
+    </select>
+
+    <select id="queryByList" resultMap="baseResultMap"	parameterType="Object">
+        select
+        <include refid="base_column_list"/>
+        from 
+        <include refid="table_name" />
+        <include refid="query_where_clause"/>
+        order by roleid desc
+		${pageQueryCondition}
+    </select>
+	
+    <select id="queryByUserRole" resultMap="baseResultMap"	parameterType="Object">
+        select
+        <include refid="base_column_list"/>
+        from 
+        <include refid="table_name" />
+        <include refid="query_where_clause"/>
+        order by roleid desc
+    </select>
+
+    <update id="update" parameterType="Object" >
+        update <include refid="table_name" /> set <include refid="update_clause" /> where roleid = #{roleid}
+    </update>
+
+    <update id="updateResult" parameterType="Object" >
+        update <include refid="table_name" /> set <include refid="update_clause" /> where roleid = #{roleid}
+    </update>
+
+	<delete id="deleteById" parameterType="Object">
+		delete from <include refid="table_name" /> where roleid = #{roleid}
+	</delete>
+
+</mapper>   

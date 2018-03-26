@@ -5,12 +5,11 @@
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>FeastCoding</title>
+    <title></title>
     <link href="<%=path%>/static/css/bootstrap.css" rel="stylesheet" />
     <link href="<%=path%>/static/css/base.css" rel="stylesheet" />
 </head>
@@ -26,7 +25,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-                    <a class="navbar-brand" href="#">FeastCoding后台管理</a>
+                    <a class="navbar-brand" href="#">XX后台管理</a>
                 </div>
 
                 <div class="collapse navbar-collapse pull-right" id="bs-example-navbar-collapse-1">
@@ -55,7 +54,22 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                             <a href="<%=path%>/jsp/index.jsp">首页</a>
                         </li>
 						<li class="nav-left-dropdown">
-							<a href="<%=path %>/queryUrlBypage.do">链接管理</a>
+							<a href="<%=path %>/queryPermissionBypage.do">Permission管理</a>
+						</li>
+						<li class="nav-left-dropdown">
+							<a href="<%=path %>/queryRoleBypage.do">Role管理</a>
+						</li>
+						<li class="nav-left-dropdown">
+							<a href="<%=path %>/queryRolePermissionBypage.do">RolePermission管理</a>
+						</li>
+						<li class="nav-left-dropdown">
+							<a href="<%=path %>/queryUrlBypage.do">Url管理</a>
+						</li>
+						<li class="nav-left-dropdown">
+							<a href="<%=path %>/queryUserBypage.do">User管理</a>
+						</li>
+						<li class="nav-left-dropdown">
+							<a href="<%=path %>/queryUserRoleBypage.do">UserRole管理</a>
 						</li>
                     </ul>
                 </div>
@@ -65,21 +79,45 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 <div class="panel-body">
                     <ol class="breadcrumb">
                         <li><a href="#">首页</a></li>
+                        <li><a href="#">编辑permission</a></li>
                     </ol>
                 </div>
                 
                 <div class="col-md-12">
+                	
                     <div class="panel panel-default ">
-                        <div class="panel-heading">后台主页</div>
+                        <div class="panel-heading">编辑permission</div>
+                        
                         <div class="panel-body">
-                        	<div class="main-right  col-xs-12">
-                        		<span>欢迎登录FeastCoding后台管理系统！</span>
-                        	</div>
-                        </div>                        
-                    </div>                    
-                </div>               
+                        	<div class="main  col-xs-12">
+                        	<form action="<%=path %>/updatePermission.do" method="post">
+								<input type="hidden" value="${permission.id}" name="id">
+                                <div class="form-group">
+                                    <label for="exampleInputPassword1">name</label>
+                                    <input type="text" name="name" value="${permission.name}" class="form-control" placeholder="name" />
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputPassword1">type</label>
+                                    <input type="text" name="type" value="${permission.type}" class="form-control" placeholder="type" />
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputPassword1">url</label>
+                                    <input type="text" name="url" value="${permission.url}" class="form-control" placeholder="url" />
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputPassword1">permission</label>
+                                    <input type="text" name="permission" value="${permission.permission}" class="form-control" placeholder="permission" />
+                                </div>
+                                <input type="submit" class="btn btn-default" value="提交" />
+                            </form>
+                        	</div>                         
+                        </div>                    
+                    </div>
+                </div> 
             </div>
         </div>
     </div>
+    <script src="<%=path%>/static/js/jquery.min.js"></script>
+    <script src="<%=path%>/static/js/bootstrap.min.js"></script>
 </body>
 </html>

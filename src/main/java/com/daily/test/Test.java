@@ -1,4 +1,4 @@
-package com.daily.util;
+package com.daily.test;
 
 import com.daily.model.User;
 import org.apache.shiro.crypto.RandomNumberGenerator;
@@ -16,16 +16,6 @@ public class Test {
     private static String algorithmName = "md5";
     private static int hashIterations = 2;
 
-    public static void main(String[] args) {
-        User user = new User();
-        user.setUsername("admin");
-        user.setPassword("admin");
-        encryptPassword(user);
-        System.out.println("salt:"+user.getSalt());
-        System.out.println("password:"+user.getPassword());
-
-    }
-
     public static void encryptPassword(User user) {
 
         RandomNumberGenerator randomNumberGenerator = new SecureRandomNumberGenerator();
@@ -38,5 +28,14 @@ public class Test {
                 hashIterations).toHex();
 
         user.setPassword(newPassword);
+    }
+
+    public static void main(String[] args) {
+        User user = new User();
+        user.setUsername("admin");
+        user.setPassword("admin");
+        encryptPassword(user);
+        System.out.println("salt:"+user.getSalt());
+        System.out.println("password:"+user.getPassword());
     }
 }

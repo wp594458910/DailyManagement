@@ -21,7 +21,7 @@ import java.io.File;
  * Date : 2018-03-27
  * Time : 14:34
  */
-public class QinuUtils {
+public class QiniuUtils {
     private String bucketName;
     private String domain;
 

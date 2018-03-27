@@ -7,7 +7,7 @@
     <context:property-placeholder location="classpath:config.properties"/>
 
     <!-- 七牛 -->
-    <bean id="qinuUtils" class="com.daily.util.QinuUtils">
+    <bean id="qinuUtils" class="com.daily.util.QiniuUtils">
         <property name="accessKey" value="${qiniu.accessKey}"/>
         <property name="secretKey" value="${qiniu.secretKey}"/>
         <property name="domain" value="${qiniu.domain}"/>

@@ -17,6 +17,12 @@
     </properties>
 
     <dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.12</version>
+            <scope>test</scope>
+        </dependency>
         <!-- ssm必要的jar包 -->
         <dependency>
             <groupId>org.springframework</groupId>
@@ -198,6 +204,13 @@
         </dependency>
         <!-- shiro相关 end -->
 
+        <!-- 七牛相关jar -->
+        <dependency>
+            <groupId>com.qiniu</groupId>
+            <artifactId>qiniu-java-sdk</artifactId>
+            <version>6.1.7.1</version>
+        </dependency>
+        <!-- 七牛相关jar -->
     </dependencies>
 
     <build>

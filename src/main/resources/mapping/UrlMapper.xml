@@ -63,7 +63,7 @@
             <if test="times != null">
                 and times=#{times}
             </if>
-            <if test="typeid != null and typeid !=''">
+            <if test="typeid != null">
                 and typeid=#{typeid}
             </if>
         </trim>

@@ -51,7 +51,7 @@
             <if test="salt != null and salt !=''">
                 salt=#{salt},
             </if>
-            <if test="locked != null and locked !=''">
+            <if test="locked != null">
                 locked=#{locked},
             </if>
         </trim>
@@ -59,7 +59,7 @@
     <sql id="query_where_clause">
         where 1=1
         <trim suffixOverrides=",">
-            <if test="id != null and id !=''">
+            <if test="id != null">
                 and id=#{id}
             </if>
             <if test="username != null and username !=''">
@@ -71,7 +71,7 @@
             <if test="salt != null and salt !=''">
                 and salt=#{salt}
             </if>
-            <if test="locked != null and locked !=''">
+            <if test="locked != null">
                 and locked=#{locked}
             </if>
         </trim>

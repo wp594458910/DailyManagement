@@ -29,10 +29,10 @@
     <sql id="query_where_clause">
         where 1=1
         <trim suffixOverrides=",">
-            <if test="roleid != null and roleid !=''">
+            <if test="roleid != null">
                 and roleid=#{roleid}
             </if>
-            <if test="permissionid != null and permissionid !=''">
+            <if test="permissionid != null">
                 and permissionid=#{permissionid}
             </if>
         </trim>

@@ -34,7 +34,7 @@
     <sql id="query_where_clause">
         where 1=1
         <trim suffixOverrides=",">
-            <if test="id != null and id !=''">
+            <if test="id != null">
                 and id=#{id}
             </if>
             <if test="role != null and role !=''">

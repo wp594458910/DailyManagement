@@ -9,6 +9,7 @@ public class Permission {
     private Integer type;
     private String url;
     private String permission;
+    private Integer parentid;
 
     public Integer getId() {
         return id;
@@ -50,4 +51,11 @@ public class Permission {
         this.permission = permission;
     }
 
+    public Integer getParentid() {
+        return parentid;
+    }
+
+    public void setParentid(Integer parentid) {
+        this.parentid = parentid;
+    }
 }

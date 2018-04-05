@@ -93,27 +93,27 @@
             </c:forEach>
         </div>
         <div class="right floated center aligned one wide column">
-            <div class="ui right floated pagination menu">
-                <c:if test="${page.pageNumber==1 || page.totalPage==0 }">
-                    <a class="icon item"><i class="left chevron icon"></i></a>
-                </c:if>
-                <c:if test="${page.pageNumber!=1 && page.totalPage!=0 }">
-                    <a class="icon item"
-                       href="<%=path %>/queryUrlBypage.do?pageNumber=${page.pageNumber-1 }&name=${url.name}">
-                        <i class="left chevron icon"></i>
-                    </a>
-                </c:if>
-                <c:if test="${page.pageNumber==page.totalPage || page.totalPage==0 }">
-                    <a class="icon item"><i class="right chevron icon"></i></a>
-                </c:if>
-                <c:if test="${page.pageNumber!=page.totalPage && page.totalPage!=0 }">
-                    <a class="icon item"
-                       href="<%=path %>/queryUrlBypage.do?pageNumber=${page.pageNumber+1 }&name=${url.name}">
-                        <i class="right chevron icon"></i>
-                    </a>
-                </c:if>
-            </div>
-        </div>
+			<div class="ui right floated pagination menu">
+				<c:if test="${page.pageNumber==1 || page.totalPage==0 }">
+					<a class="icon item" href ="javascript:return false;"><i class="left chevron icon" style="opacity: 0.2"></i></a>
+				</c:if>
+				<c:if test="${page.pageNumber!=1 && page.totalPage!=0 }">
+					<a class="icon item"
+					   href="<%=path %>/queryUrlBypage.do?pageNumber=${page.pageNumber-1 }&">
+						<i class="left chevron icon"></i>
+					</a>
+				</c:if>
+				<c:if test="${page.pageNumber==page.totalPage || page.totalPage==0 }">
+					<a class="icon item" href ="javascript:return false;"><i class="right chevron icon" style="opacity: 0.2"></i></a>
+				</c:if>
+				<c:if test="${page.pageNumber!=page.totalPage && page.totalPage!=0 }">
+					<a class="icon item"
+					   href="<%=path %>/queryUrlBypage.do?pageNumber=${page.pageNumber+1 }">
+						<i class="right chevron icon"></i>
+					</a>
+				</c:if>
+			</div>
+		</div>
     </div>
 </div>
 <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js "></script>

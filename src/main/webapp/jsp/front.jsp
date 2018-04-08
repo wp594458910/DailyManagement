@@ -99,7 +99,7 @@
 				</c:if>
 				<c:if test="${page.pageNumber!=1 && page.totalPage!=0 }">
 					<a class="icon item"
-					   href="<%=path %>/queryUrlBypage.do?pageNumber=${page.pageNumber-1 }&">
+					   href="<%=path %>/queryUrlBypage.do?pageNumber=${page.pageNumber-1 }&name=${url.name}">
 						<i class="left chevron icon"></i>
 					</a>
 				</c:if>
@@ -108,7 +108,7 @@
 				</c:if>
 				<c:if test="${page.pageNumber!=page.totalPage && page.totalPage!=0 }">
 					<a class="icon item"
-					   href="<%=path %>/queryUrlBypage.do?pageNumber=${page.pageNumber+1 }">
+					   href="<%=path %>/queryUrlBypage.do?pageNumber=${page.pageNumber+1 }&name=${url.name}">
 						<i class="right chevron icon"></i>
 					</a>
 				</c:if>
